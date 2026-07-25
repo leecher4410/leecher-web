@@ -12,7 +12,7 @@
       --bg-color: #030303;
       --card-bg: #0c0c0c;
       --text-color: #ededed;
-      --text-muted: #737373;
+      --text-muted: #888888;
       --accent-color: #ffffff;
       --highlight-color: #e53935;
       --border-color: #1f1f1f;
@@ -25,19 +25,16 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       font-family: var(--font-body);
-      line-height: 1.7;
-      letter-spacing: 0.06em;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
-    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
     
     /* Header */
     header { padding: 60px 0 35px; text-align: center; }
-    .logo-container {
-      display: inline-block;
-      margin-bottom: 25px;
-    }
+    .logo-container { display: inline-block; margin-bottom: 25px; }
     .site-logo {
       max-width: 240px;
       width: 100%;
@@ -46,9 +43,7 @@
       margin: 0 auto;
       filter: contrast(180%) brightness(130%);
       mix-blend-mode: screen;
-      transition: opacity 0.3s ease;
     }
-    /* 画像が無い場合の代替テキストスタイル */
     .logo-text {
       font-family: var(--font-heading);
       font-size: 2.2rem;
@@ -80,75 +75,79 @@
     nav a:hover, nav a.active { color: var(--accent-color); }
     nav a:hover::after, nav a.active::after { width: 100%; }
     
-    /* Section Title */
+    /* Section & Grid Layout */
     section { padding: 40px 0 90px; }
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      margin-bottom: 35px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .section-title::before {
-      content: '';
-      width: 4px;
-      height: 16px;
-      background-color: var(--highlight-color);
+    
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
     }
 
-    /* Event Cards */
     .event-card {
+      display: block;
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
-      padding: 24px 28px;
-      margin-bottom: 16px;
       border-radius: 2px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all 0.3s ease;
-      position: relative;
       overflow: hidden;
-    }
-    .event-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 2px; height: 100%;
-      background-color: var(--highlight-color);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: all 0.3s ease;
     }
     .event-card:hover {
       border-color: var(--border-hover);
-      transform: translateX(4px);
-      background-color: #121212;
+      transform: translateY(-4px);
     }
-    .event-card:hover::before { opacity: 1; }
-    
-    .event-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; color: #fff; letter-spacing: 0.04em; }
-    .event-meta { color: var(--text-muted); font-size: 0.8rem; line-height: 1.6; }
-    
-    .event-date-box {
-      text-align: right;
-      border-left: 1px solid var(--border-color);
-      padding-left: 24px;
-      min-width: 130px;
+
+    .flyer-image-wrapper {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-color: #111;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
     }
-    .event-date-box .date { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; color: #fff; }
-    .event-date-box .year { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em; }
-    
+    .flyer-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.9);
+    }
+    .event-card:hover .flyer-image-wrapper img {
+      transform: scale(1.03);
+      filter: brightness(1);
+    }
+
+    .event-content { padding: 20px; }
+    .post-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-heading);
+      margin-bottom: 8px;
+    }
+    .event-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .event-snippet {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
     /* Footer */
     footer { padding: 45px 0; text-align: center; color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.15em; border-top: 1px solid var(--border-color); }
     
     @media (max-width: 768px) {
-      .site-logo { max-width: 180px; }
+      .event-grid { grid-template-columns: 1fr; gap: 24px; }
       nav ul { gap: 16px; }
-      .event-card { flex-direction: column; text-align: center; padding: 20px; }
-      .event-date-box { border-left: none; padding-left: 0; padding-top: 16px; text-align: center; margin-top: 16px; border-top: 1px solid var(--border-color); width: 100%; }
     }
   </style>
 </head>
@@ -173,106 +172,34 @@
     </header>
 
     <section>
-      <h2 class="section-title">LIVE SCHEDULE</h2>
-      
-      <!-- 2025.03.09 -->
-      <div class="event-card">
-        <div class="event-info">
-          <h3>Mysteries of Modular</h3>
-          <p class="event-meta">at 高円寺 Oriental Force | op/st: 18:00 / 18:30</p>
-          <p class="event-meta">adv/door: 1,500yen + 1D</p>
-          <p class="event-meta">Act: HERNIA, Kenichi Takagi, Leecher, DNS, MizutaMa, Dave Skipper ...</p>
-        </div>
-        <div class="event-date-box">
-          <div class="date">03.09</div>
-          <div class="year">2025 Sun</div>
-        </div>
-      </div>
+      <div class="event-grid">
+        
+        <!-- EVENT 1 (クリックで詳細ページへ) -->
+        <a href="event-20250309.html" class="event-card">
+          <div class="flyer-image-wrapper">
+            <!-- ※実際のフライヤー画像パスを指定してください -->
+            <img src="flyer-20250309.jpg" alt="2025/3/9 Mysteries of Modular" onerror="this.src='https://via.placeholder.com/600x600/111/fff?text=FLYER+IMAGE'">
+          </div>
+          <div class="event-content">
+            <div class="post-date">2025.03.05 23:26</div>
+            <h2 class="event-title">2025/3/9 Mysteries of Modular</h2>
+            <p class="event-snippet">2025/3/9(Sun) Mysteries of Modular at 高円寺Oriental Force 1,500yen + 1D op/st: 18:00/18:30 【Act】HERNIA ・ Kenichi Takagi ・ Leecher ・ DNS ・ MizutaMa ・ Dave Sk...</p>
+          </div>
+        </a>
 
-      <!-- 2024.10.12 -->
-      <div class="event-card">
-        <div class="event-info">
-          <h3>Heavier than jupiter: manifest mini-fest</h3>
-          <p class="event-meta">at 落合 soup | st: 17:30〜</p>
-          <p class="event-meta">adv/door: 1,000yen / 1,500yen</p>
-          <p class="event-meta">Act: Naoki Nomoto x Dave Skipper, Sakura ...</p>
-        </div>
-        <div class="event-date-box">
-          <div class="date">10.12</div>
-          <div class="year">2024 Sat</div>
-        </div>
-      </div>
+        <!-- EVENT 2 -->
+        <a href="event-20241012.html" class="event-card">
+          <div class="flyer-image-wrapper">
+            <img src="flyer-20241012.jpg" alt="2024/10/12 Heavier than jupiter" onerror="this.src='https://via.placeholder.com/600x600/111/fff?text=FLYER+IMAGE'">
+          </div>
+          <div class="event-content">
+            <div class="post-date">2024.10.11 10:58</div>
+            <h2 class="event-title">2024/10/12 Heavier than jupiter: manifest mini-fest</h2>
+            <p class="event-snippet">2024/10/12(Sat) Heavier than jupiter: manifest mini-fest at 落合 soup ad:1,000yen door:1,500yen st: 17:30〜 【Act】Naoki Nomoto x Dave Skipper ・ Sakura ...</p>
+          </div>
+        </a>
 
-      <!-- 2022.12.09 -->
-      <div class="event-card">
-        <div class="event-info">
-          <h3>DOOM MEETING Extra Vol.3</h3>
-          <p class="event-meta">at 大塚 地底 | st: 22:00〜</p>
-          <p class="event-meta">Entrance Free (+1 Drink order)</p>
-          <p class="event-meta">Act: Abiuro, Dave Skipper, Joseph of Kirezi, NGYL, QHØQ, wear ...</p>
-        </div>
-        <div class="event-date-box">
-          <div class="date">12.09</div>
-          <div class="year">2022 Fri</div>
-        </div>
       </div>
-
-      <!-- 2022.10.29 -->
-      <div class="event-card">
-        <div class="event-info">
-          <h3>Heavier Than Jupitar Vol.25</h3>
-          <p class="event-meta">at 落合 Soup | op: 17:30〜</p>
-          <p class="event-meta">adv/door: 1,000yen</p>
-          <p class="event-meta">Live: Skin Job, Leecher, LINEKRAFT, Tony Uhm, Yi Seunggyu, DxSx ...</p>
-        </div>
-        <div class="event-date-box">
-          <div class="date">10.29</div>
-          <div class="year">2022 Sat</div>
-        </div>
-      </div>
-
-      <!-- 2021.01.30 -->
-      <div class="event-card">
-        <div class="event-info">
-          <h3>POST ANTI ART : INTERNALORGANS</h3>
-          <p class="event-meta">at 国分寺 MORGANA | op/st: 19:00 / 19:30</p>
-          <p class="event-meta">adv/door: 2,000yen / 2,500yen</p>
-          <p class="event-meta">Live: JDOW, EAT / DJ: zahrahoz</p>
-        </div>
-        <div class="event-date-box">
-          <div class="date">01.30</div>
-          <div class="year">2021 Sat</div>
-        </div>
-      </div>
-
-      <!-- 2020.02.24 -->
-      <div class="event-card">
-        <div class="event-info">
-          <h3>Eastern Noise Onslaught</h3>
-          <p class="event-meta">at 江古田 フライングティーポット | op/st: 18:30 / 19:00</p>
-          <p class="event-meta">adv/door: 1,500yen + 1D</p>
-          <p class="event-meta">Live: Fistula Dagger, Wolf Creek, shikaku, G.R.D.V., Uncivilized ...</p>
-        </div>
-        <div class="event-date-box">
-          <div class="date">02.24</div>
-          <div class="year">2020 Mon</div>
-        </div>
-      </div>
-
-      <!-- 2020.01.25 -->
-      <div class="event-card">
-        <div class="event-info">
-          <h3>HELL SCROLL II</h3>
-          <p class="event-meta">at 大分 ATHALL | op/st: 17:00 / 17:30</p>
-          <p class="event-meta">adv/door: 2,500yen / 3,000yen</p>
-          <p class="event-meta">Live: DJ後藤まりこ, ASTRO, Dave Skipper, Leecher, P.O.V., Sea beco ...</p>
-        </div>
-        <div class="event-date-box">
-          <div class="date">01.25</div>
-          <div class="year">2020 Sat</div>
-        </div>
-      </div>
-
     </section>
 
     <footer>
