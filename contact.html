@@ -17,22 +17,43 @@
     body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-family); line-height: 1.8; letter-spacing: 0.05em; }
     a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
     .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-    header { padding: 80px 0 60px; text-align: center; }
-    header h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; }
+    
+    /* ----------------------------------
+       ヘッダーの縦幅を縮小 (他ページと共通)
+    ----------------------------------- */
+    header { padding: 30px 0 20px; text-align: center; }
+    
+    /* ----------------------------------
+       ロゴ画像の背景馴染ませ・サイズ調整
+    ----------------------------------- */
+    .site-logo {
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+      filter: contrast(180%) brightness(130%);
+      mix-blend-mode: screen;
+    }
+
     nav ul { list-style: none; display: flex; justify-content: center; gap: 30px; }
     nav a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; }
     nav a:hover, nav a.active { color: var(--accent-color); }
-    section { padding: 60px 0 100px; text-align: center; }
+    
+    section { padding: 40px 0 80px; text-align: center; }
     h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 40px; position: relative; display: inline-block; }
     h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background-color: var(--accent-color); }
+    
     .contact-box { margin-top: 30px; }
     .contact-box p { font-size: 1.1rem; margin-bottom: 20px; }
     .email-link { color: var(--text-color); border-bottom: 1px solid #333; padding-bottom: 4px; }
     .email-link:hover { border-bottom-color: #fff; }
     .note { margin-top: 30px; color: var(--text-muted); font-size: 0.95rem; }
-    footer { padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; border-top: 1px solid var(--border-color); }
+    
+    footer { padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; border-top: 1px solid var(--border-color); }
+    
     @media (max-width: 768px) {
-      header h1 { font-size: 2.5rem; }
+      .site-logo { max-width: 180px; }
       nav ul { gap: 15px; }
     }
   </style>
@@ -41,7 +62,11 @@
 
   <div class="container">
     <header>
-      <h1><a href="index.html">Leecher</a></h1>
+      <h1>
+        <a href="index.html">
+          <img src="leecher-logo.png" alt="Leecher" class="site-logo">
+        </a>
+      </h1>
       <nav>
         <ul>
           <li><a href="index.html">HOME</a></li>
