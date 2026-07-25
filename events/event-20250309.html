@@ -53,7 +53,7 @@
     }
 
     /* Navigation */
-    nav ul { list-style: none; display: flex; justify-content: center; gap: 32px; }
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
     nav a {
       font-family: var(--font-heading);
       font-size: 0.75rem;
@@ -163,17 +163,19 @@
   <div class="container">
     <header>
       <div class="logo-container">
-        <a href="index.html">
-          <img src="logo.png" alt="Leecher" class="site-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <!-- 1階層上の images/ 内のロゴを指定 -->
+        <a href="../index.html">
+          <img src="../images/logo.png" alt="Leecher" class="site-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <span class="logo-text" style="display: none;">LEECHER</span>
         </a>
       </div>
       <nav>
         <ul>
-          <li><a href="index.html" class="active">HOME</a></li>
-          <li><a href="discography.html">DISCOGRAPHY</a></li>
-          <li><a href="media.html">MEDIA</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="../index.html">HOME</a></li>
+          <li><a href="../index.html" class="active">LIVE SCHEDULE</a></li>
+          <li><a href="../discography.html">DISCOGRAPHY</a></li>
+          <li><a href="../media.html">MEDIA</a></li>
+          <li><a href="../contact.html">CONTACT</a></li>
         </ul>
       </nav>
     </header>
@@ -208,10 +210,11 @@
           </ul>
         </div>
 
-        <img src="flyer-20250309.jpg" alt="Mysteries of Modular Flyer" class="detail-flyer" onerror="this.src='https://via.placeholder.com/700x700/111/fff?text=FLYER+IMAGE'">
+        <!-- 1階層上の images/ 内の画像を指定 -->
+        <img src="../images/79619f7758eb92bfc4f9f5c033528df6_6f5a755907a81845d358c846412988a0.jpg" alt="Mysteries of Modular Flyer" class="detail-flyer" onerror="this.src='https://via.placeholder.com/700x700/111/fff?text=FLYER+IMAGE'">
 
         <div>
-          <a href="index.html" class="back-link">&larr; BACK TO LIST</a>
+          <a href="../index.html" class="back-link">&larr; BACK TO LIST</a>
         </div>
       </div>
     </article>
