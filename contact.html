@@ -4,57 +4,119 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CONTACT | Leecher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #000000;
-      --text-color: #e0e0e0;
+      --bg-color: #080808;
+      --card-bg: rgba(18, 18, 18, 0.7);
+      --text-color: #f0f0f0;
       --text-muted: #888888;
       --accent-color: #ffffff;
-      --border-color: #1a1a1a;
-      --font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.25);
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-family); line-height: 1.8; letter-spacing: 0.05em; }
-    a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.8;
+      letter-spacing: 0.08em;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
     
-    /* ----------------------------------
-       ヘッダーの縦幅を縮小 (他ページと共通)
-    ----------------------------------- */
-    header { padding: 30px 0 20px; text-align: center; }
-    
-    /* ----------------------------------
-       ロゴ画像の背景馴染ませ・サイズ調整
-    ----------------------------------- */
+    /* Header Navigation */
+    header { padding: 45px 0 25px; text-align: center; }
     .site-logo {
-      max-width: 260px;
+      max-width: 240px;
       width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto 10px;
+      margin: 0 auto 20px;
       filter: contrast(180%) brightness(130%);
       mix-blend-mode: screen;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .site-logo:hover {
+      transform: scale(1.02);
+      filter: contrast(200%) brightness(150%);
     }
 
-    nav ul { list-style: none; display: flex; justify-content: center; gap: 30px; }
-    nav a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; }
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 36px; }
+    nav a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      width: 0; height: 1px;
+      background: var(--accent-color);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
     nav a:hover, nav a.active { color: var(--accent-color); }
+    nav a:hover::after, nav a.active::after { width: 100%; }
     
-    section { padding: 40px 0 80px; text-align: center; }
-    h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 40px; position: relative; display: inline-block; }
-    h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background-color: var(--accent-color); }
+    /* Main Content */
+    section { padding: 50px 0 100px; text-align: center; }
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      display: inline-block;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 1px;
+      background-color: var(--accent-color);
+    }
     
-    .contact-box { margin-top: 30px; }
-    .contact-box p { font-size: 1.1rem; margin-bottom: 20px; }
-    .email-link { color: var(--text-color); border-bottom: 1px solid #333; padding-bottom: 4px; }
-    .email-link:hover { border-bottom-color: #fff; }
-    .note { margin-top: 30px; color: var(--text-muted); font-size: 0.95rem; }
+    .contact-card {
+      background-color: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 50px 30px;
+      max-width: 600px;
+      margin: 30px auto 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .contact-card p { font-size: 1.15rem; margin-bottom: 20px; font-weight: 300; }
+    .email-link {
+      color: var(--text-color);
+      border-bottom: 1px solid var(--border-hover);
+      padding-bottom: 4px;
+      font-weight: 400;
+    }
+    .email-link:hover { border-bottom-color: #ffffff; color: #fff; }
+    .note { margin-top: 25px; color: var(--text-muted); font-size: 0.9rem; letter-spacing: 0.15em; }
     
-    footer { padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; border-top: 1px solid var(--border-color); }
+    footer { padding: 50px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.1em; border-top: 1px solid var(--border-color); }
     
     @media (max-width: 768px) {
       .site-logo { max-width: 180px; }
-      nav ul { gap: 15px; }
+      nav ul { gap: 18px; }
+      .contact-card { padding: 35px 20px; }
     }
   </style>
 </head>
@@ -78,8 +140,8 @@
     </header>
 
     <section>
-      <h2>CONTACT</h2>
-      <div class="contact-box">
+      <h2 class="section-title">CONTACT</h2>
+      <div class="contact-card">
         <p>Contact : <a href="mailto:Leecher4410@gmail.com" class="email-link">Leecher4410@gmail.com</a></p>
         <p class="note">A.T.O.N.</p>
       </div>
