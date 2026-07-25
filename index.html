@@ -54,7 +54,7 @@
     }
 
     /* Navigation */
-    nav ul { list-style: none; display: flex; justify-content: center; gap: 32px; }
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
     nav a {
       font-family: var(--font-heading);
       font-size: 0.75rem;
@@ -157,14 +157,14 @@
     <header>
       <div class="logo-container">
         <a href="index.html">
-          <!-- images/ ディレクトリ内のロゴを参照 -->
           <img src="images/logo.png" alt="Leecher" class="site-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <span class="logo-text" style="display: none;">LEECHER</span>
         </a>
       </div>
       <nav>
         <ul>
-          <li><a href="index.html" class="active">HOME</a></li>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="index.html" class="active">LIVE SCHEDULE</a></li>
           <li><a href="discography.html">DISCOGRAPHY</a></li>
           <li><a href="media.html">MEDIA</a></li>
           <li><a href="contact.html">CONTACT</a></li>
@@ -175,10 +175,9 @@
     <section>
       <div class="event-grid">
         
-        <!-- EVENT 1 (events/ フォルダ内の詳細ページへリンク) -->
+        <!-- EVENT 1 -->
         <a href="events/event-20250309.html" class="event-card">
           <div class="flyer-image-wrapper">
-            <!-- images/ フォルダ内のフライヤー画像を参照 -->
             <img src="images/79619f7758eb92bfc4f9f5c033528df6_6f5a755907a81845d358c846412988a0.jpg" alt="2025/3/9 Mysteries of Modular" onerror="this.src='https://via.placeholder.com/600x600/111/fff?text=FLYER+IMAGE'">
           </div>
           <div class="event-content">
@@ -191,7 +190,6 @@
         <!-- EVENT 2 -->
         <a href="events/event-20241012.html" class="event-card">
           <div class="flyer-image-wrapper">
-            <!-- images/ フォルダ内のフライヤー画像を参照 -->
             <img src="images/flyer-20241012.jpg" alt="2024/10/12 Heavier than jupiter" onerror="this.src='https://via.placeholder.com/600x600/111/fff?text=FLYER+IMAGE'">
           </div>
           <div class="event-content">
