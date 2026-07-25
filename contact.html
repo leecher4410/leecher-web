@@ -22,9 +22,15 @@
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
+    html {
+      background-color: var(--bg-color);
+      min-height: 100%;
+    }
+
     body {
       background-color: var(--bg-color);
-      background-image: radial-gradient(circle at 50% 0%, #151518 0%, var(--bg-color) 70%);
+      background-image: radial-gradient(circle at 50% 0%, #16161a 0%, #080808 75%);
+      background-attachment: fixed;
       color: var(--text-main);
       font-family: var(--font-body);
       line-height: 1.6;
