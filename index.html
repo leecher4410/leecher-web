@@ -3,68 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leecher Official Website</title>
+  <title>Leecher | Official</title>
   <style>
-    /* 黒ベースのシンプルなデザイン */
+    /* ----------------------------------
+       Reset & Base Styles
+    ----------------------------------- */
+    :root {
+      --bg-color: #000000;         /* 完全な黒 */
+      --text-color: #e0e0e0;       /* やわらかい白 */
+      --text-muted: #888888;       /* グレー（サブテキスト） */
+      --accent-color: #ffffff;     /* アクセント（ホバー時など） */
+      --card-bg: #0a0a0a;          /* カードの背景 */
+      --border-color: #1a1a1a;     /* 境界線 */
+      
+      /* フォント：モダンでソリッドなサンセリフ体 */
+      --font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      background-color: #111;
-      color: #eee;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      line-height: 1.6;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.8;
+      overflow-x: hidden;
+      letter-spacing: 0.05em; /* 全体的に少し文字間を広げる */
     }
-    header {
-      text-align: center;
-      padding: 40px 0;
-      border-bottom: 1px solid #333;
-    }
-    h1 {
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-      margin: 0;
-    }
-    nav {
-      margin-top: 15px;
-    }
-    nav a {
-      color: #aaa;
+
+    a {
+      color: inherit;
       text-decoration: none;
-      margin: 0 10px;
-      font-size: 0.9rem;
+      transition: color 0.3s ease;
     }
-    nav a:hover { color: #fff; }
+
     container {
-      max-width: 800px;
+      max-width: 1000px; /* 少し広めに設定 */
       margin: 0 auto;
       display: block;
+      padding: 0 20px;
     }
+
+    /* ----------------------------------
+       Header / Nav
+    ----------------------------------- */
+    header {
+      padding: 80px 0 60px; /* 余白を広く */
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3.5rem; /* 大きく、印象的に */
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase; /* 大文字に強制 */
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px; /* メニュー間の余白 */
+    }
+
+    nav a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    /* ----------------------------------
+       Sections (General)
+    ----------------------------------- */
     section {
-      margin: 40px 0;
+      padding: 100px 0; /* セクション間の余白を大きく */
+      border-bottom: 1px solid var(--border-color);
     }
+
     h2 {
-      border-bottom: 1px solid #444;
-      padding-bottom: 8px;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      position: relative;
+      display: inline-block;
     }
+    
+    /* タイトルの下の装飾線（ソリッド） */
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+
+    /* ----------------------------------
+       Live Section
+    ----------------------------------- */
     .event-card {
-      background: #1e1e1e;
-      padding: 15px;
-      margin-bottom: 15px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      margin-bottom: 20px;
       border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .event-date {
-      color: #888;
+
+    .event-info h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .event-meta {
+      color: var(--text-muted);
       font-size: 0.85rem;
     }
-    footer {
+
+    .event-date-box {
+      text-align: right;
+      color: var(--text-muted);
+      border-left: 1px solid var(--border-color);
+      padding-left: 30px;
+    }
+
+    .event-date-box .date {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+
+    /* ----------------------------------
+       Discography Section
+    ----------------------------------- */
+    .disco-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* 自動折り返し */
+      gap: 40px;
+    }
+
+    .disco-item {
       text-align: center;
-      color: #666;
+    }
+
+    .disco-img-wrapper {
+      width: 100%;
+      aspect-ratio: 1 / 1; /* 正方形を維持 */
+      background-color: #111; /* 画像がない場合の背景 */
+      margin-bottom: 15px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+    
+    .disco-item:hover .disco-img-wrapper {
+      border-color: #444; /* ホバー時に境界線を少し明るく */
+    }
+
+    .disco-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 画像を枠に合わせてトリミング */
+    }
+
+    .disco-item h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .disco-item .year {
       font-size: 0.8rem;
-      margin-top: 60px;
-      border-top: 1px solid #333;
-      padding-top: 20px;
+      color: var(--text-muted);
+    }
+
+    /* ----------------------------------
+       Contact & Footer
+    ----------------------------------- */
+    #contact {
+      text-align: center;
+    }
+    
+    .email-link {
+      font-size: 1.1rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
+    }
+    
+    .email-link:hover {
+      border-bottom-color: #fff;
+    }
+
+    footer {
+      padding: 60px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    /* ----------------------------------
+       Mobile Responsive
+    ----------------------------------- */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      nav ul { gap: 15px; }
+      .event-card { flex-direction: column; text-align: center; }
+      .event-date-box { border-left: none; padding-left: 0; padding-top: 20px; text-align: center; margin-top: 15px; border-top: 1px solid var(--border-color); width: 100%; }
+      .disco-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     }
   </style>
 </head>
@@ -74,39 +231,179 @@
     <header>
       <h1>Leecher</h1>
       <nav>
-        <a href="#live">LIVE</a>
-        <a href="#discography">DISCOGRAPHY</a>
-        <a href="#contact">CONTACT</a>
+        <ul>
+          <li><a href="#live">Live</a></li>
+          <li><a href="#discography">Discography</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
     </header>
 
     <section id="live">
-      <h2>LIVE / SCHEDULE</h2>
+      <h2>Live Schedule</h2>
       
-      <!-- ライブ予定を追加していく枠 -->
+      <!-- ライブ予定のカード（1つ目） -->
       <div class="event-card">
-        <div class="event-date">2025.03.05</div>
-        <h3>2025/3/9 Mysteries of Modular</h3>
-        <p>at 高円寺Oriental Force<br>1,500yen + 1D | open/start: 18:00/18:30</p>
+        <div class="event-info">
+          <h3>Mysteries of Modular</h3>
+          <p class="event-meta">at 高円寺 Oriental Force | open/start: 18:00/18:30</p>
+          <p class="event-meta">adv/door: 1,500yen + 1D</p>
+        </div>
+        <div class="event-date-box">
+          <div class="date">03.09</div>
+          <div class="year">2025 Sun</div>
+        </div>
       </div>
+      
+      <!-- 予定を追加する場合は、ここに上の.event-cardの塊をコピーして貼り付けます -->
 
     </section>
 
     <section id="discography">
-      <h2>DISCOGRAPHY</h2>
-      <p>A.T.O.N.</p>
-      <!-- ここにジャケット画像や配信リンクなどを追加していきます -->
-    </section>
+      <h2>Discography</h2>
+      
+      <div class="disco-grid">
+        <!-- 音源アイテム（1つ目） -->
+        <div class="disco-item">
+          <div class="disco-img-wrapper">
+            <!-- 💡ここに画像のURLを入れます。例: img/aton.jpg -->
+            <!-- <img src="" alt="A.T.O.N."> -->
+          </div>
+          <h3>A.T.O.N.結論から言うと、**GitHubと静的コンテンツだけで、完全に無料で、おしゃれでダークなホームページを作成・移行できます。**
 
-    <section id="contact">
-      <h2>CONTACT</h2>
-      <p>Contact : Leecher4410@gmail.com</p>
-    </section>
+Ameba Ownd（`.themedia.jp`）にある元のサイトは、HOME / DISCOGRAPHY / MEDIA / CONTACT といった非常にシンプルで整理された構成ですので、GitHub Pagesで動くHTML/CSSだけでその雰囲気を十分に再現、あるいはさらに洗練させることが可能です。
 
-    <footer>
-      <p>&copy; Leecher. All Rights Reserved.</p>
-    </footer>
-  </container>
+移行にあたって、GitHubの画面を日本語にする方法、リポジトリを作成する方法、そしてAmeba Owndの雰囲気を継承しつつ、より**「ソリッドでダーク、かつモダンで洗練された」**デザインに刷新するHTML/CSSコードを用意しました。
 
-</body>
-</html>
+---
+
+## 1. 準備：GitHub画面を日本語にする（ブラウザ翻訳）
+
+残念ながら、**GitHubの公式サイト自体には日本語表示に切替える設定がありません。** 基本的に英語インターフェースのみです。
+
+しかし、ブラウザの**自動翻訳機能**を使えば、一瞬でかなり自然な日本語表示にできます。ボタンや入力項目の配置は変わらないので、翻訳機能を使った状態で以下の手順を進めてOKです。
+
+* **Google Chrome / Microsoft Edge:** 画面の何もないところを**右クリック** ➔ **「日本語に翻訳」** を選択。
+* **Safari (Mac/iPhone):** アドレスバーのアイコン（`ぁあ` や `AA`）をタップ ➔ **「日本語に翻訳」** を選択。
+
+---
+
+## 2. ステップ1：リポジトリ（保管庫）を作成する
+
+GitHubにログイン後、画面右上の **「＋」アイコン** を押して、**「New repository」**（新しいリポジトリ）をクリックします。
+
+作成画面が開いたら、以下のように設定して一番下の緑色のボタンをクリックしてください。
+
+| 項目名（英語） | 設定内容・入力例 | 解説 |
+|---|---|---|
+| **Repository name** | `my-website` や `portfolio` など | サイトの管理名です。URLの一部になります。 |
+| **Description** | 空欄でOK | メモ書きです。 |
+| **Public / Private** | **`Public` を選択** | **重要:** 無料でPagesを使うには `Public`（公開）である必要があります。 |
+| **Initialize...** | **`Add a README file`** にチェック | 最初からファイルが作成され、後の作業が楽になります。 |
+
+---
+
+## 3. ステップ2：おしゃれなダークデザインの `index.html` を作成する
+
+リポジトリができたら、トップページとなるHTMLファイルを作成します。元のAmeba Owndサイトの雰囲気を尊重しつつ、よりダークで洗練されたデザイン（スマホ対応済み）のコードを用意しました。
+
+<Sequence>
+{/* Reason: この順番で操作しないとファイルが正しく作成・保存されないため */}
+  <Step subtitle="1. ファイル作成を開始" title="「Add file」➔「Create new file」をクリック">
+    リポジトリ画面の右側にある「Add file」ボタンを押し、出てきたメニューから「Create new file」を選択します。
+  </Step>
+  <Step subtitle="2. ファイル名を指定" title="ファイル名に「index.html」と入力">
+    「Name your file...」の欄に、半角英数字で **`index.html`** と入力します。**トップページは必ずこの名前にする必要があります。**
+  </Step>
+  <Step subtitle="3. コードを貼り付け" title="下のHTMLコードをすべてコピーして、編集エリアに貼り付け">
+    以下のグレーの枠内のコードをすべてコピーし、GitHubのファイル編集エリアに貼り付けます。
+  </Step>
+</Sequence>
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leecher | Official</title>
+  <style>
+    /* ----------------------------------
+       Reset & Base Styles
+    ----------------------------------- */
+    :root {
+      --bg-color: #000000;         /* 完全な黒 */
+      --text-color: #e0e0e0;       /* やわらかい白 */
+      --text-muted: #888888;       /* グレー（サブテキスト） */
+      --accent-color: #ffffff;     /* アクセント（ホバー時など） */
+      --card-bg: #0a0a0a;          /* カードの背景 */
+      --border-color: #1a1a1a;     /* 境界線 */
+      
+      /* フォント：モダンでソリッドなサンセリフ体 */
+      --font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.8;
+      overflow-x: hidden;
+      letter-spacing: 0.05em; /* 全体的に少し文字間を広げる */
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    container {
+      max-width: 1000px; /* 少し広めに設定 */
+      margin: 0 auto;
+      display: block;
+      padding: 0 20px;
+    }
+
+    /* ----------------------------------
+       Header / Nav
+    ----------------------------------- */
+    header {
+      padding: 80px 0 60px; /* 余白を広く */
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3.5rem; /* 大きく、印象的に */
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase; /* 大文字に強制 */
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px; /* メニュー間の余白 */
+    }
+
+    nav a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    /* ----------------------------------
+       Sections (General)
+    ----------------------------------- */
+    section {
+      padding: 100px 0; /* セクション間の余白を大きく */
+      border-bottom: 1px solid var(--border-color);
