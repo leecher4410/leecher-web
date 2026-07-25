@@ -6,117 +6,114 @@
   <title>CONTACT | Leecher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #080808;
-      --card-bg: rgba(18, 18, 18, 0.7);
-      --text-color: #f0f0f0;
-      --text-muted: #888888;
+      --bg-color: #030303;
+      --card-bg: #0c0c0c;
+      --text-color: #ededed;
+      --text-muted: #737373;
       --accent-color: #ffffff;
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.25);
-      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --highlight-color: #e53935;
+      --border-color: #1f1f1f;
+      --border-hover: #404040;
+      --font-heading: 'Syne', sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: var(--font-family);
-      line-height: 1.8;
-      letter-spacing: 0.08em;
+      font-family: var(--font-body);
+      line-height: 1.7;
+      letter-spacing: 0.06em;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: inherit; text-decoration: none; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
     
-    /* Header Navigation */
-    header { padding: 45px 0 25px; text-align: center; }
+    header { padding: 60px 0 35px; text-align: center; }
+    .logo-container { display: inline-block; margin-bottom: 25px; }
     .site-logo {
       max-width: 240px;
       width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto 20px;
+      margin: 0 auto;
       filter: contrast(180%) brightness(130%);
       mix-blend-mode: screen;
-      transition: transform 0.4s ease, filter 0.4s ease;
     }
-    .site-logo:hover {
-      transform: scale(1.02);
-      filter: contrast(200%) brightness(150%);
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #fff;
     }
 
-    nav ul { list-style: none; display: flex; justify-content: center; gap: 36px; }
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 32px; }
     nav a {
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       position: relative;
-      padding-bottom: 4px;
+      padding: 4px 0;
     }
     nav a::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 50%;
-      width: 0; height: 1px;
-      background: var(--accent-color);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
+      bottom: 0; left: 0; width: 0; height: 1px;
+      background-color: var(--highlight-color);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     nav a:hover, nav a.active { color: var(--accent-color); }
     nav a:hover::after, nav a.active::after { width: 100%; }
     
-    /* Main Content */
-    section { padding: 50px 0 100px; text-align: center; }
+    section { padding: 40px 0 90px; text-align: center; }
     .section-title {
-      font-size: 1.25rem;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
       font-weight: 800;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      margin-bottom: 40px;
-      display: inline-block;
-      position: relative;
+      margin-bottom: 35px;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
     }
-    .section-title::after {
+    .section-title::before {
       content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 1px;
-      background-color: var(--accent-color);
+      width: 4px;
+      height: 16px;
+      background-color: var(--highlight-color);
     }
     
-    .contact-card {
+    .contact-box {
       background-color: var(--card-bg);
-      backdrop-filter: blur(12px);
       border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 50px 30px;
-      max-width: 600px;
-      margin: 30px auto 0;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-radius: 2px;
+      padding: 45px 20px;
+      max-width: 540px;
+      margin: 20px auto 0;
     }
-    .contact-card p { font-size: 1.15rem; margin-bottom: 20px; font-weight: 300; }
+    .contact-box p { font-size: 1.05rem; margin-bottom: 15px; }
     .email-link {
-      color: var(--text-color);
-      border-bottom: 1px solid var(--border-hover);
-      padding-bottom: 4px;
-      font-weight: 400;
+      color: #fff;
+      border-bottom: 1px solid var(--text-muted);
+      padding-bottom: 2px;
     }
-    .email-link:hover { border-bottom-color: #ffffff; color: #fff; }
-    .note { margin-top: 25px; color: var(--text-muted); font-size: 0.9rem; letter-spacing: 0.15em; }
+    .email-link:hover { border-bottom-color: var(--highlight-color); }
+    .note { color: var(--text-muted); font-size: 0.85rem; letter-spacing: 0.1em; }
     
-    footer { padding: 50px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.1em; border-top: 1px solid var(--border-color); }
+    footer { padding: 45px 0; text-align: center; color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.15em; border-top: 1px solid var(--border-color); }
     
     @media (max-width: 768px) {
       .site-logo { max-width: 180px; }
-      nav ul { gap: 18px; }
-      .contact-card { padding: 35px 20px; }
+      nav ul { gap: 16px; }
     }
   </style>
 </head>
@@ -124,11 +121,12 @@
 
   <div class="container">
     <header>
-      <h1>
+      <div class="logo-container">
         <a href="index.html">
-          <img src="leecher-logo.png" alt="Leecher" class="site-logo">
+          <img src="logo.png" alt="Leecher" class="site-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <span class="logo-text" style="display: none;">LEECHER</span>
         </a>
-      </h1>
+      </div>
       <nav>
         <ul>
           <li><a href="index.html">HOME</a></li>
@@ -141,7 +139,7 @@
 
     <section>
       <h2 class="section-title">CONTACT</h2>
-      <div class="contact-card">
+      <div class="contact-box">
         <p>Contact : <a href="mailto:Leecher4410@gmail.com" class="email-link">Leecher4410@gmail.com</a></p>
         <p class="note">A.T.O.N.</p>
       </div>
