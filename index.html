@@ -22,9 +22,15 @@
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
+    html {
+      background-color: var(--bg-color);
+      min-height: 100%;
+    }
+
     body {
       background-color: var(--bg-color);
-      background-image: radial-gradient(circle at 50% 0%, #151518 0%, var(--bg-color) 70%);
+      background-image: radial-gradient(circle at 50% 0%, #16161a 0%, #080808 75%);
+      background-attachment: fixed;
       color: var(--text-main);
       font-family: var(--font-body);
       line-height: 1.6;
@@ -203,8 +209,6 @@
       <h2 class="section-title">LIVE SCHEDULE</h2>
 
       <div class="event-grid">
-        
-        <!-- EVENT 1 -->
         <a href="events/event-20250309.html" class="event-card">
           <div class="flyer-image-wrapper">
             <img src="images/79619f7758eb92bfc4f9f5c033528df6_6f5a755907a81845d358c846412988a0.jpg" alt="2025/3/9 Mysteries of Modular" onerror="this.src='https://via.placeholder.com/600x600/111/fff?text=FLYER+IMAGE'">
@@ -215,7 +219,6 @@
           </div>
         </a>
 
-        <!-- EVENT 2 -->
         <a href="events/event-20241012.html" class="event-card">
           <div class="flyer-image-wrapper">
             <img src="images/flyer-20241012.jpg" alt="2024/10/12 Heavier than jupiter" onerror="this.src='https://via.placeholder.com/600x600/111/fff?text=FLYER+IMAGE'">
@@ -225,7 +228,6 @@
             <h3 class="event-title">Heavier than jupiter: manifest mini-fest</h3>
           </div>
         </a>
-
       </div>
     </section>
 
