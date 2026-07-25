@@ -1,115 +1,68 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leecher | Official</title>
-  <style>
-    :root {
-      --bg-color: #000000;
-      --text-color: #e0e0e0;
-      --text-muted: #888888;
-      --accent-color: #ffffff;
-      --card-bg: #0a0a0a;
-      --border-color: #1a1a1a;
-      --font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-family);
-      line-height: 1.8;
-      letter-spacing: 0.05em;
-    }
-    a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+<style>
+  :root {
+    --bg-color: #000000;
+    --text-color: #e0e0e0;
+    --text-muted: #888888;
+    --accent-color: #ffffff;
+    --card-bg: #0a0a0a;
+    --border-color: #1a1a1a;
+    --font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+  }
+  a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+  
+  /* ----------------------------------
+     ヘッダー全体の縦幅削減
+  ----------------------------------- */
+  header {
+    padding: 30px 0 15px; /* 上下パディングを大幅に削減 */
+    text-align: center;
+  }
+  
+  /* ----------------------------------
+     ロゴ画像のスタイル設定
+     (背景とのブレンド & 縦幅削減)
+  ----------------------------------- */
+  .site-logo {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 5px; /* 下側のマージンを10pxから5pxへ削減 */
     
-    header {
-      padding: 25px 0 15px; /* ヘッダーの上下余白を小さく調整 */
-      text-align: center;
-    }
-    
-    .site-logo {
-      max-width: 260px; /* ロゴの幅を少し小さくして縦幅削減 */
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto 5px; /* ロゴと下のメニューの間隔を詰める */
-      
-      /* 黒背景の上のグレー枠を消して文字だけを見せる */
-      mix-blend-mode: screen; 
-    }
+    /* --- 違和感解消の魔法 --- */
+    /* この1行で画像のグレー背景を黒い背景に溶け込ませます */
+    mix-blend-mode: color-dodge; 
+  }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-    nav a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; }
-    nav a:hover, nav a.active { color: var(--accent-color); }
-    
-    section { padding: 40px 0 80px; }
-    h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 30px; position: relative; display: inline-block; }
-    h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 40px; height: 2px; background-color: var(--accent-color); }
-    
-    .event-card { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; margin-bottom: 15px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
-    .event-info h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
-    .event-meta { color: var(--text-muted); font-size: 0.85rem; }
-    .event-date-box { text-align: right; color: var(--text-muted); border-left: 1px solid var(--border-color); padding-left: 30px; }
-    .event-date-box .date { font-size: 1.2rem; font-weight: 700; color: var(--text-color); }
-    
-    footer { padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; border-top: 1px solid var(--border-color); }
-    
-    @media (max-width: 768px) {
-      .site-logo { max-width: 180px; }
-      nav ul { gap: 15px; }
-      .event-card { flex-direction: column; text-align: center; }
-      .event-date-box { border-left: none; padding-left: 0; padding-top: 20px; text-align: center; margin-top: 15px; border-top: 1px solid var(--border-color); width: 100%; }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <header>
-      <h1>
-        <a href="index.html">
-          <img src="leecher-logo.png" alt="Leecher" class="site-logo">
-        </a>
-      </h1>
-      <nav>
-        <ul>
-          <li><a href="index.html" class="active">HOME</a></li>
-          <li><a href="discography.html">DISCOGRAPHY</a></li>
-          <li><a href="media.html">MEDIA</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <section>
-      <h2>LIVE SCHEDULE</h2>
-      
-      <div class="event-card">
-        <div class="event-info">
-          <h3>Mysteries of Modular</h3>
-          <p class="event-meta">at 高円寺 Oriental Force | open/start: 18:00/18:30</p>
-          <p class="event-meta">adv/door: 1,500yen + 1D</p>
-        </div>
-        <div class="event-date-box">
-          <div class="date">03.09</div>
-          <div class="year">2025 Sun</div>
-        </div>
-      </div>
-
-    </section>
-
-    <footer>
-      <p>&copy; Leecher. All Rights Reserved.</p>
-    </footer>
-  </div>
-
-</body>
-</html>
+  nav ul { list-style: none; display: flex; justify-content: center; gap: 30px; }
+  nav a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; }
+  nav a:hover, nav a.active { color: var(--accent-color); }
+  
+  section { padding: 40px 0 80px; } /* セクション上部の余白も少し削減 */
+  h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 30px; position: relative; display: inline-block; }
+  h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 40px; height: 2px; background-color: var(--accent-color); }
+  
+  .event-card { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; margin-bottom: 15px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
+  .event-info h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
+  .event-meta { color: var(--text-muted); font-size: 0.85rem; }
+  .event-date-box { text-align: right; color: var(--text-muted); border-left: 1px solid var(--border-color); padding-left: 30px; }
+  .event-date-box .date { font-size: 1.2rem; font-weight: 700; color: var(--text-color); }
+  
+  footer { padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; border-top: 1px solid var(--border-color); }
+  
+  @media (max-width: 768px) {
+    .site-logo { max-width: 220px; }
+    nav ul { gap: 15px; }
+    .event-card { flex-direction: column; text-align: center; }
+    .event-date-box { border-left: none; padding-left: 0; padding-top: 20px; text-align: center; margin-top: 15px; border-top: 1px solid var(--border-color); width: 100%; }
+  }
+</style>
