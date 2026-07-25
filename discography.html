@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DISCOGRAPHY | Leecher</title>
+  <style>
+    :root {
+      --bg-color: #000000;
+      --text-color: #e0e0e0;
+      --text-muted: #888888;
+      --accent-color: #ffffff;
+      --border-color: #1a1a1a;
+      --font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-family); line-height: 1.8; letter-spacing: 0.05em; }
+    a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 80px 0 60px; text-align: center; }
+    header h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; }
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 30px; }
+    nav a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; }
+    nav a:hover, nav a.active { color: var(--accent-color); }
+    section { padding: 60px 0 100px; }
+    h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 40px; position: relative; display: inline-block; }
+    h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 40px; height: 2px; background-color: var(--accent-color); }
+    .disco-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 40px; }
+    .disco-item { text-align: center; }
+    .disco-img-wrapper { width: 100%; aspect-ratio: 1 / 1; background-color: #111; margin-bottom: 15px; border: 1px solid var(--border-color); overflow: hidden; }
+    .disco-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+    .disco-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
+    .disco-item .year { font-size: 0.85rem; color: var(--text-muted); }
+    footer { padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; border-top: 1px solid var(--border-color); }
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      nav ul { gap: 15px; }
+      .disco-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1><a href="index.html">Leecher</a></h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="discography.html" class="active">DISCOGRAPHY</a></li>
+          <li><a href="media.html">MEDIA</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <h2>DISCOGRAPHY</h2>
+      
+      <div class="disco-grid">
+        <div class="disco-item">
+          <div class="disco-img-wrapper">
+            <!-- ジャケット画像を用意したら <img src="aton.jpg" alt="A.T.O.N."> に差し替え -->
+          </div>
+          <h3>A.T.O.N.</h3>
+          <p class="year">2025</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; Leecher. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
