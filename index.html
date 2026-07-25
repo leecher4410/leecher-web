@@ -54,7 +54,7 @@
     }
 
     /* Navigation */
-    nav ul { list-style: none; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
     nav a {
       font-family: var(--font-heading);
       font-size: 0.75rem;
@@ -78,6 +78,19 @@
     /* Section & Grid Layout */
     section { padding: 40px 0 90px; }
     
+    /* Section Title Styles */
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 30px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
     .event-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -163,8 +176,7 @@
       </div>
       <nav>
         <ul>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="index.html" class="active">LIVE SCHEDULE</a></li>
+          <li><a href="index.html" class="active">HOME</a></li>
           <li><a href="discography.html">DISCOGRAPHY</a></li>
           <li><a href="media.html">MEDIA</a></li>
           <li><a href="contact.html">CONTACT</a></li>
@@ -173,6 +185,8 @@
     </header>
 
     <section>
+      <h1 class="section-title">LIVE SCHEDULE</h1>
+
       <div class="event-grid">
         
         <!-- EVENT 1 -->
@@ -181,8 +195,9 @@
             <img src="images/79619f7758eb92bfc4f9f5c033528df6_6f5a755907a81845d358c846412988a0.jpg" alt="2025/3/9 Mysteries of Modular" onerror="this.src='https://via.placeholder.com/600x600/111/fff?text=FLYER+IMAGE'">
           </div>
           <div class="event-content">
-            <div class="post-date">2025.03.05</div>
+            <div class="post-date">2025.03.05 23:26</div>
             <h2 class="event-title">2025/3/9 Mysteries of Modular</h2>
+            <p class="event-snippet">2025/3/9(Sun) Mysteries of Modular at 高円寺Oriental Force 1,500yen + 1D op/st: 18:00/18:30 【Act】HERNIA ・ Kenichi Takagi ・ Leecher ・ DNS ・ MizutaMa ・ Dave Sk...</p>
           </div>
         </a>
 
@@ -192,8 +207,9 @@
             <img src="images/flyer-20241012.jpg" alt="2024/10/12 Heavier than jupiter" onerror="this.src='https://via.placeholder.com/600x600/111/fff?text=FLYER+IMAGE'">
           </div>
           <div class="event-content">
-            <div class="post-date">2024.10.11</div>
+            <div class="post-date">2024.10.11 10:58</div>
             <h2 class="event-title">2024/10/12 Heavier than jupiter: manifest mini-fest</h2>
+            <p class="event-snippet">2024/10/12(Sat) Heavier than jupiter: manifest mini-fest at 落合 soup ad:1,000yen door:1,500yen st: 17:30〜 【Act】Naoki Nomoto x Dave Skipper ・ Sakura ...</p>
           </div>
         </a>
 
