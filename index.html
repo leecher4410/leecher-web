@@ -6,125 +6,149 @@
   <title>Leecher | Official</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #080808;
-      --card-bg: rgba(18, 18, 18, 0.7);
-      --text-color: #f0f0f0;
-      --text-muted: #888888;
+      --bg-color: #030303;
+      --card-bg: #0c0c0c;
+      --text-color: #ededed;
+      --text-muted: #737373;
       --accent-color: #ffffff;
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.25);
-      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --highlight-color: #e53935;
+      --border-color: #1f1f1f;
+      --border-hover: #404040;
+      --font-heading: 'Syne', sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: var(--font-family);
-      line-height: 1.8;
-      letter-spacing: 0.08em;
+      font-family: var(--font-body);
+      line-height: 1.7;
+      letter-spacing: 0.06em;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: inherit; text-decoration: none; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
     
-    /* Header & Navigation */
-    header { padding: 45px 0 25px; text-align: center; }
+    /* Header */
+    header { padding: 60px 0 35px; text-align: center; }
+    .logo-container {
+      display: inline-block;
+      margin-bottom: 25px;
+    }
     .site-logo {
       max-width: 240px;
       width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto 20px;
+      margin: 0 auto;
       filter: contrast(180%) brightness(130%);
       mix-blend-mode: screen;
-      transition: transform 0.4s ease, filter 0.4s ease;
+      transition: opacity 0.3s ease;
     }
-    .site-logo:hover {
-      transform: scale(1.02);
-      filter: contrast(200%) brightness(150%);
+    /* 画像が無い場合の代替テキストスタイル */
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #fff;
     }
 
-    nav ul { list-style: none; display: flex; justify-content: center; gap: 36px; }
+    /* Navigation */
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 32px; }
     nav a {
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       position: relative;
-      padding-bottom: 4px;
+      padding: 4px 0;
     }
     nav a::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 50%;
-      width: 0; height: 1px;
-      background: var(--accent-color);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
+      bottom: 0; left: 0; width: 0; height: 1px;
+      background-color: var(--highlight-color);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     nav a:hover, nav a.active { color: var(--accent-color); }
     nav a:hover::after, nav a.active::after { width: 100%; }
     
-    /* Main Content */
-    section { padding: 50px 0 100px; }
+    /* Section Title */
+    section { padding: 40px 0 90px; }
     .section-title {
-      font-size: 1.25rem;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
       font-weight: 800;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      margin-bottom: 40px;
+      margin-bottom: 35px;
       display: flex;
       align-items: center;
       gap: 15px;
     }
-    .section-title::after {
+    .section-title::before {
       content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, var(--border-hover), transparent);
+      width: 4px;
+      height: 16px;
+      background-color: var(--highlight-color);
     }
-    
+
     /* Event Cards */
     .event-card {
       background-color: var(--card-bg);
-      backdrop-filter: blur(12px);
       border: 1px solid var(--border-color);
-      padding: 28px 32px;
-      margin-bottom: 20px;
-      border-radius: 6px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      border-radius: 2px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 2px; height: 100%;
+      background-color: var(--highlight-color);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     .event-card:hover {
       border-color: var(--border-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transform: translateX(4px);
+      background-color: #121212;
     }
-    .event-info h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; color: #fff; }
-    .event-meta { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
+    .event-card:hover::before { opacity: 1; }
+    
+    .event-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; color: #fff; letter-spacing: 0.04em; }
+    .event-meta { color: var(--text-muted); font-size: 0.8rem; line-height: 1.6; }
+    
     .event-date-box {
       text-align: right;
       border-left: 1px solid var(--border-color);
-      padding-left: 30px;
-      min-width: 140px;
+      padding-left: 24px;
+      min-width: 130px;
     }
-    .event-date-box .date { font-size: 1.35rem; font-weight: 800; color: #fff; letter-spacing: 0.05em; }
-    .event-date-box .year { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+    .event-date-box .date { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; color: #fff; }
+    .event-date-box .year { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em; }
     
     /* Footer */
-    footer { padding: 50px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.1em; border-top: 1px solid var(--border-color); }
+    footer { padding: 45px 0; text-align: center; color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.15em; border-top: 1px solid var(--border-color); }
     
     @media (max-width: 768px) {
       .site-logo { max-width: 180px; }
-      nav ul { gap: 18px; }
-      .event-card { flex-direction: column; text-align: center; padding: 24px; }
-      .event-date-box { border-left: none; padding-left: 0; padding-top: 20px; text-align: center; margin-top: 20px; border-top: 1px solid var(--border-color); width: 100%; }
+      nav ul { gap: 16px; }
+      .event-card { flex-direction: column; text-align: center; padding: 20px; }
+      .event-date-box { border-left: none; padding-left: 0; padding-top: 16px; text-align: center; margin-top: 16px; border-top: 1px solid var(--border-color); width: 100%; }
     }
   </style>
 </head>
@@ -132,11 +156,12 @@
 
   <div class="container">
     <header>
-      <h1>
+      <div class="logo-container">
         <a href="index.html">
-          <img src="leecher-logo.png" alt="Leecher" class="site-logo">
+          <img src="logo.png" alt="Leecher" class="site-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <span class="logo-text" style="display: none;">LEECHER</span>
         </a>
-      </h1>
+      </div>
       <nav>
         <ul>
           <li><a href="index.html" class="active">HOME</a></li>
