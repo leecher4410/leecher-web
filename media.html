@@ -27,14 +27,23 @@
     
     .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
     
-    /* Header */
-    header { padding: 60px 0 40px; text-align: center; }
+    /* ----------------------------------
+       ヘッダーの縦幅を縮小 (index.htmlと共有)
+    ----------------------------------- */
+    header { padding: 30px 0 20px; text-align: center; }
+    
+    /* ----------------------------------
+       ロゴ画像の背景馴染ませ・サイズ調整 (index.htmlと共有)
+    ----------------------------------- */
     .site-logo {
-      max-width: 300px;
+      max-width: 260px; /* index.htmlに合わせてサイズ・縦幅縮小 */
       width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto 20px;
+      margin: 0 auto 10px;
+      /* 背景の黒と画像をなじませるフィルター設定 */
+      filter: contrast(180%) brightness(130%);
+      mix-blend-mode: screen;
     }
 
     nav ul { list-style: none; display: flex; justify-content: center; gap: 30px; }
@@ -127,7 +136,7 @@
     }
     
     @media (max-width: 768px) {
-      .site-logo { max-width: 220px; }
+      .site-logo { max-width: 180px; }
       nav ul { gap: 15px; }
       .video-grid { grid-template-columns: 1fr; }
       .info-block { padding: 20px; }
@@ -142,7 +151,7 @@
     <header>
       <h1>
         <a href="index.html">
-          <img src="logo.png" alt="Leecher" class="site-logo">
+          <img src="leecher-logo.png" alt="Leecher" class="site-logo">
         </a>
       </h1>
       <nav>
