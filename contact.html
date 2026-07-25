@@ -93,21 +93,20 @@
       background-color: var(--highlight-color);
     }
     
-    /* 調整したContact Box */
+    /* 他ページのブロックと同様に横幅いっぱいに広げる */
     .contact-box {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 2px;
-      padding: 32px;
-      max-width: 560px;
-      margin: 0 auto;
-      text-align: left; /* 左揃え */
-      font-size: 0.85rem; /* サイズダウンしてすっきり表記 */
+      padding: 28px;
+      width: 100%;
+      text-align: left;
+      font-size: 0.85rem;
     }
 
     .contact-item {
       display: flex;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       word-break: break-all;
     }
     .contact-item:last-child {
@@ -115,7 +114,7 @@
     }
 
     .contact-label {
-      width: 90px;
+      width: 110px;
       flex-shrink: 0;
       color: var(--text-muted);
       font-family: var(--font-heading);
@@ -140,8 +139,8 @@
     @media (max-width: 768px) {
       .site-logo { max-width: 180px; }
       nav ul { gap: 16px; }
-      .contact-item { flex-direction: column; gap: 4px; }
-      .contact-box { padding: 24px; }
+      .contact-item { flex-direction: column; gap: 2px; margin-bottom: 16px; }
+      .contact-box { padding: 20px; }
     }
   </style>
 </head>
