@@ -24,22 +24,38 @@
     }
     a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
     .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-    header { padding: 80px 0 60px; text-align: center; }
-    header h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; }
+    
+    header { padding: 60px 0 40px; text-align: center; }
+    
+    /* ----------------------------------
+       ロゴ画像のスタイル設定
+    ----------------------------------- */
+    .site-logo {
+      max-width: 320px; /* PCでの表示サイズ */
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
     nav ul { list-style: none; display: flex; justify-content: center; gap: 30px; }
     nav a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; }
     nav a:hover, nav a.active { color: var(--accent-color); }
+    
     section { padding: 60px 0 100px; }
     h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 40px; position: relative; display: inline-block; }
     h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 40px; height: 2px; background-color: var(--accent-color); }
+    
     .event-card { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 30px; margin-bottom: 20px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
     .event-info h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
     .event-meta { color: var(--text-muted); font-size: 0.85rem; }
     .event-date-box { text-align: right; color: var(--text-muted); border-left: 1px solid var(--border-color); padding-left: 30px; }
     .event-date-box .date { font-size: 1.2rem; font-weight: 700; color: var(--text-color); }
+    
     footer { padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; border-top: 1px solid var(--border-color); }
+    
     @media (max-width: 768px) {
-      header h1 { font-size: 2.5rem; }
+      .site-logo { max-width: 220px; } /* スマホでのロゴ表示サイズ */
       nav ul { gap: 15px; }
       .event-card { flex-direction: column; text-align: center; }
       .event-date-box { border-left: none; padding-left: 0; padding-top: 20px; text-align: center; margin-top: 15px; border-top: 1px solid var(--border-color); width: 100%; }
@@ -50,7 +66,12 @@
 
   <div class="container">
     <header>
-      <h1><a href="index.html">Leecher</a></h1>
+      <!-- テキストからロゴ画像へ変更 -->
+      <h1>
+        <a href="index.html">
+          <img src="leecher-logo.png" alt="Leecher" class="site-logo">
+        </a>
+      </h1>
       <nav>
         <ul>
           <li><a href="index.html" class="active">HOME</a></li>
