@@ -77,31 +77,6 @@
     /* Article Detail Section */
     article.event-detail {
       padding: 40px 0 90px;
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 30px;
-    }
-
-    /* Date Badge (Left Side) */
-    .date-badge {
-      border: 1px solid var(--border-color);
-      padding: 12px 8px;
-      text-align: center;
-      height: fit-content;
-      background-color: var(--card-bg);
-    }
-    .date-badge .day {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      font-weight: 800;
-      line-height: 1;
-      color: #fff;
-    }
-    .date-badge .month {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      margin-top: 6px;
-      letter-spacing: 0.05em;
     }
 
     /* Main Detail Content */
@@ -181,8 +156,6 @@
     footer { padding: 45px 0; text-align: center; color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.15em; border-top: 1px solid var(--border-color); }
     
     @media (max-width: 768px) {
-      article.event-detail { grid-template-columns: 1fr; gap: 20px; }
-      .date-badge { display: inline-block; width: 90px; }
       nav ul { gap: 16px; }
       .info-row { flex-direction: column; gap: 2px; margin-bottom: 14px; }
       .event-info-box { padding: 18px; }
@@ -211,17 +184,10 @@
     </header>
 
     <article class="event-detail">
-      <!-- Date Box（イベント日に合わせ09日に修正） -->
-      <div class="date-badge">
-        <div class="day">09</div>
-        <div class="month">2025.03</div>
-      </div>
-
-      <!-- Main Content -->
       <div class="detail-body">
         <h1 class="detail-title">Mysteries of Modular</h1>
         
-        <!-- すっきり整理されたイベント情報枠 -->
+        <!-- フラットに配置したイベント情報枠 -->
         <div class="event-info-box">
           <div class="info-row">
             <span class="info-label">DATE</span>
