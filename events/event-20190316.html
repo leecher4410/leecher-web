@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2019/3/16 "Dousekurunode" CD Release Party | Leecher</title>
+  <link rel="icon" href="../images/favicon.png?v=1" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #080808;
+      --card-bg: rgba(18, 18, 18, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(255, 255, 255, 0.2);
+      --text-main: #f0f0f0;
+      --text-muted: #888888;
+      --accent-color: #e53935;
+      --font-heading: 'Syne', sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html {
+      background-color: var(--bg-color);
+      min-height: 100%;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      background-image: radial-gradient(circle at 50% 0%, #16161a 0%, #080808 75%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Header */
+    header { padding: 50px 0 30px; text-align: center; }
+    .logo-container { display: inline-block; margin-bottom: 24px; }
+    .site-logo {
+      max-width: 220px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      filter: contrast(180%) brightness(130%);
+      mix-blend-mode: screen;
+    }
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
+    nav a {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      position: relative;
+      padding: 6px 0;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; width: 0; height: 2px;
+      background-color: var(--accent-color);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    nav a:hover, nav a.active { color: #fff; }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    
+    /* Article Detail Section */
+    article.event-detail {
+      padding: 30px 0 80px;
+    }
+
+    .detail-body { width: 100%; }
+
+    /* Category / Label Top */
+    .event-meta-top {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .detail-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 30px;
+      line-height: 1.25;
+      letter-spacing: 0.02em;
+    }
+
+    /* イベント情報カード */
+    .event-info-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-left: 3px solid var(--accent-color);
+      border-radius: 4px;
+      padding: 28px 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 16px 20px;
+      align-items: baseline;
+      font-size: 0.9rem;
+    }
+
+    .info-label {
+      color: var(--text-muted);
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .info-value {
+      color: var(--text-main);
+      font-weight: 400;
+    }
+
+    .price-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2px 10px;
+      border-radius: 2px;
+      font-size: 0.85rem;
+    }
+
+    /* 出演者タグ（ピルデザイン） */
+    .act-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .act-tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: #ddd;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .act-tag:hover {
+      border-color: var(--card-border-hover);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* フライヤー演出 */
+    .flyer-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid var(--card-border);
+      background-color: #111;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+    .detail-flyer {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+      filter: brightness(0.92) contrast(105%);
+    }
+    .flyer-wrapper:hover .detail-flyer {
+      transform: scale(1.02);
+      filter: brightness(1) contrast(100%);
+    }
+
+    /* バックボタン */
+    .back-btn-wrapper {
+      margin-top: 45px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      padding: 10px 18px;
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.25s ease;
+    }
+    .back-link:hover {
+      color: #fff;
+      border-color: var(--card-border-hover);
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateX(-3px);
+    }
+
+    /* Footer */
+    footer {
+      padding: 50px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      border-top: 1px solid var(--card-border);
+      margin-top: 40px;
+    }
+    
+    @media (max-width: 768px) {
+      nav ul { gap: 18px; }
+      .event-info-card { padding: 20px; }
+      .info-grid { grid-template-columns: 1fr; gap: 4px; }
+      .info-label { margin-top: 12px; }
+      .info-label:first-child { margin-top: 0; }
+      .detail-title { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <a href="../index.html">
+          <img src="../images/logo.png" alt="Leecher" class="site-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <span class="logo-text" style="display: none;">LEECHER</span>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html" class="active">HOME</a></li>
+          <li><a href="../discography.html">DISCOGRAPHY</a></li>
+          <li><a href="../media.html">MEDIA</a></li>
+          <li><a href="../contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article class="event-detail">
+      <div class="detail-body">
+        
+        <span class="event-meta-top">LIVE / EVENT</span>
+        <h1 class="detail-title">"Dousekurunode" CD Release Party</h1>
+        
+        <!-- プロ仕様のモダンな情報カード -->
+        <div class="event-info-card">
+          <div class="info-grid">
+            <span class="info-label">DATE</span>
+            <span class="info-value">2019/3/16 (Sat)</span>
+
+            <span class="info-label">VENUE</span>
+            <span class="info-value">落合soup</span>
+
+            <span class="info-label">TIME</span>
+            <span class="info-value">OPEN 18:30 START 19:00</span>
+
+            <span class="info-label">PRICE</span>
+            <span class="info-value"><span class="price-badge">&yen;1,000 (+ 1Drink)</span></span>
+
+            <span class="info-label">ACTS</span>
+            <div class="info-value act-tags">
+              <span class="act-tag">Kazumoto Endo</span>
+              <span class="act-tag">Leecher</span>
+              <span class="act-tag">Wolf Creek</span>
+              <span class="act-tag">Izumi Kawasaki</span>
+            </div>
+            <span class="info-label">DJ</span>
+            <div class="info-value act-tags">
+              <span class="act-tag">DJ Kataitoba</span>
+            </div>
+            <span class="info-label">Food</span>
+            <div class="info-value act-tags">
+              <span class="act-tag">Chai Tea "Coming Clean" from Niigata</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- アニメーション付きフライヤー画像表示 -->
+        <div class="flyer-wrapper">
+          <img src="../images/20190316.jpg" alt="Dousekurunode CD Release Party Flyer" class="detail-flyer" onerror="this.src='https://via.placeholder.com/700x700/111/fff?text=FLYER+IMAGE'">
+        </div>
+
+        <div class="back-btn-wrapper">
+          <a href="../index.html" class="back-link">
+            <span>&larr;</span> BACK TO LIST
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <footer>
+      <p>&copy; Leecher. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
