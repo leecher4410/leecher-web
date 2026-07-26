@@ -282,11 +282,6 @@
     }
     
     @media (max-width: 768px) {
-      .site-logo { 
-        max-width: 180px; 
-        mix-blend-mode: normal; 
-        filter: none; 
-      }
       nav ul { gap: 18px; }
       .disco-grid { grid-template-columns: 1fr; }
       .modal-container { padding: 24px; }
@@ -657,7 +652,6 @@ https://fushiginaniwa.bandcamp.com/album/omnivorous-travel-close-encounters-of-t
       document.body.style.overflow = '';
     }
 
-    // テキスト内のURLを自動でリンク化するヘルパー
     function linkify(text) {
       const urlRegex = /(https?:\/\/[^\s]+)/g;
       return text.replace(urlRegex, function(url) {
