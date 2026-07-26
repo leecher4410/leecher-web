@@ -13,7 +13,7 @@
       --bg-color: #080808;
       --card-bg: rgba(18, 18, 18, 0.75);
       --card-border: rgba(255, 255, 255, 0.08);
-      --card-border-hover: rgba(255, 255, 255, 0.25);
+      --card-border-hover: rgba(255, 255, 255, 0.2);
       --text-main: #f0f0f0;
       --text-muted: #888888;
       --accent-color: #e53935;
@@ -159,6 +159,11 @@
     }
     
     @media (max-width: 768px) {
+      .site-logo { 
+        max-width: 180px; 
+        mix-blend-mode: normal; 
+        filter: none; 
+      }
       nav ul { gap: 18px; }
       .contact-card { padding: 20px; }
       .contact-grid { grid-template-columns: 1fr; gap: 4px; }
